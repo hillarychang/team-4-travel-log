@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Travel</title>
+
+</head>
+<body>
+<!-- navbar section -->
+    <nav class="navbar">
+        {% block menu %}
+            {% include 'menu.html' %}
+        {%  endblock menu%}
+        <!-- login button -->
+        <button type="button" class="log-shown-btn">
+            <i class="fas fa-user" onclick="openForm()"></i>
+        </button>
+    </nav>
+
+
+
+    <!-- login form container -->
+    <div class="loginPopup" id="popupForm">
+        <div class="formPopup">
+            <form action="/login" method="POST"  class="formContainer">
+                <i class="fas fa-times" onclick="closeForm()"></i>
+                <h2>Log in</h2>
+                {% if log_msg %}
+                <div class ="alert alert-info" role="alert">
+                    {% for message in log_msg %}
+                        <h4>{{message}}</h4>
+                    {% endfor %}
+                </div>
+            {% endif %}
+                <input type="text" class="box" name="email" placeholder="enter your email">
+                <input type="password" class="box" name="password" placeholder="enter your password">
+                <input type="submit" value="Login now" class="btn">
+                <p>don't have an account? <a href="/signup">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="slider-container">
+        <div class="menu">
+            <label for="slide-dot-1"></label>
+            <label for="slide-dot-2"></label>
+            <label for="slide-dot-3"></label>
+        </div>
+        <input id="slide-dot-1" type="radio" name="slides" checked>
+        <div class="slide slide-1">
+            <div class="showcase">
+                <h1>To travel is to evolve.</h1>
+                <p> - Pierre Bernardo</p>
+                <a href="/signup" class="nav-link"><button type="button">explore with us</button></a>
+            </div>
+
+        </div>
+        <input id="slide-dot-2" type="radio" name="slides">
+        <div class="slide slide-2">
+            <div class="showcase">
+                <h1>Wherever you go, go with all your heart</h1>
+                <p> - Confucius</p>
+                <a href="/signup" class="nav-link"><button type="button">explore with us</button></a>
+            </div>
+        </div>
+        <input id="slide-dot-3" type="radio" name="slides">
+        <div class="slide slide-3">
+            <div class="showcase">
+                <h1>To travel is to take a journey into yourself.</h1>
+                <p> - Danny Kaye</p>
+                <a href="/signup" class="nav-link"><button type="button">explore with us</button></a>
+            </div>/a>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>    
+</body>
+</html>
+
+
+
+

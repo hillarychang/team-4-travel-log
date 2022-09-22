@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/menu.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/global.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Menu</title>
+
+</head>
+<body>
+    {% block menu %} 
+        <nav class="logo-and-toggler">
+            <img src="../static/images/groupLogoWhite-rv.png" alt="logo" class="navbar-logo">
+            <div class="button-column">
+            <!-- menu buttons -->
+            <button type ="button" class="nav-show-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            </div>
+
+        </nav>
+
+        
+        <div class="navbar-collapse">
+            <button type="button" class="nav-hide-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="navbar-nav">
+                {% if 'user_id' in session %}
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/dashboard" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/trips/new" class="nav-link">Add Post </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/members" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link">Logout</a>
+                </li>
+                {%else%}
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/signup" class="nav-link">Sign up</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/members" class="nav-link">About Us</a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    {% endblock menu %}    
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>    
+</body>
+</html>

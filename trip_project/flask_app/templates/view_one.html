@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View One</title>
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='css/menu.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/view_one.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+
+</head>
+<body>
+<!-- header & navbar section -->
+<nav class="navbar">
+    {% block menu %}
+        {% include 'menu.html' %}
+    {%  endblock menu%}
+</nav>
+
+<!-- header -->
+<header class = "flex">
+    <div class = "container">
+        <div class = "header-title">
+            <h1>Hello {{user.first_name}}</h1>
+            <p>To travel is to take a journey into yourself..</p>
+        </div>
+    </div>
+</header>
+<!-- end of header -->
+
+    <!-- login error flash message -->
+    <div class="flashContainer">
+        {% if error%}
+            {%for msg in error%}
+                <p>{{msg}}</p>
+            {% endfor%}
+        {% endif%}
+    </div>
+<!-- end of login error flash message -->
+
+
+    <!-- blog section -->
+    <section id = "blog" class = "py-4">
+        <div class = "Container">
+            <div class = "title-wrap">
+                <h2 class = "sm-title">Reading is dreaming with open eyes</h2>
+                <h3 class = "lg-title">Recent blog</h3>
+            </div>
+            <div class = "blog-row">
+                <div class = "blog-item">
+                    <div class = "blog-item-top">
+                        <span class = "blog-date">{{trip.trip_date.strftime('%m/%d/%Y')}}</span>
+                    </div>
+                    <div class = "blog-item-bottom  shadow">
+                        <span><h2>{{trip.title}}</h2> </span>
+                        <h3>Hotel: {{trip.hotel_name}}</h3>
+                        <h3>Cost: $ {{trip.cost}}</h3>
+                        <p>{{trip.description}}</p>
+                        
+                        {% if trip.user_id == session.user_id %}
+                        <div class="action-box">
+                            <a href = "/trips/edit/{{trip.id}}"><button type="button" class="edit-btn shadow">Edit</button></a>
+                            <form action="/trips/delete/{{trip.id}}" method="POST" class="delete-form">
+                                <input name="id" type="hidden" value="{{trip.id}}">
+                                <button class="delete-btn shadow">Delete</button>
+                            </form>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- end of blog section -->
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>    
+</body>
+</html>    
+

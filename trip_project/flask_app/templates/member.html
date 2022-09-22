@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/member.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+    
+    <title>About Us</title>
+</head>
+<body>
+<!-- header & navbar section -->
+    <nav class="navbar">
+        {% block menu %}
+            {% include 'menu.html' %}
+        {%  endblock menu%}
+    </nav>
+
+    <!-- header -->
+    <header class = "flex">
+        <div class = "container">
+            <div class = "header-title">
+                <h1>Come To Know Us</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rerum maxime enim odit illum in molestias beatae doloremque, ratione optio.</p>
+                <a href="/signup" class="nav-link"><button type="button">explore with us</button></a>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+<!-- Member section -->
+<section id="membersection" class="py-4">
+    <div class="container">
+        <div class="title-wrap">
+            <span class="sm-title">About us</span>
+            <h2 class ="lg-title">Groups 4</h2>
+        </div>
+
+        <div class="text-row">
+            <div class="text-item">
+                <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa cumque rem modi ipsam porro perferendis deserunt fugit hic iure? At, possimus. Nulla, explicabo? Reiciendis nobis ea natus nostrum aspernatur nesciunt accusamus illo.</p>
+                <div class ="text-item-info">
+                    <img src="../static/images/mtTaranaki.jpg" alt="Hillary">
+                </div>
+                <h3>Hillary Chang</h3>
+                <p class="text">Leader</p>
+            </div>
+        </div>
+
+        <div class="text-row">
+            <div class="text-item">
+                <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa cumque rem modi ipsam porro perferendis deserunt fugit hic iure? At, possimus. Nulla, explicabo? Reiciendis nobis ea natus nostrum aspernatur nesciunt accusamus illo.</p>
+                <div class ="text-item-info">
+                    <img src="../static/images/mtTaranaki.jpg" alt="Edward">
+                </div>
+                <h3>Edward Senecal</h3>
+                <p class="text">Member</p>
+            </div>
+        </div>
+
+        <div class="text-row">
+            <div class="text-item">
+                <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa cumque rem modi ipsam porro perferendis deserunt fugit hic iure? At, possimus. Nulla, explicabo? Reiciendis nobis ea natus nostrum aspernatur nesciunt accusamus illo.</p>
+                <div class ="text-item-info">
+                    <img src="../static/images/mtTaranaki.jpg" alt="Ayomide">
+                </div>
+                <h3>Ayomide Adeyina</h3>
+                <p class="text">Member</p>
+            </div>
+        </div>
+
+        <div class="text-row">
+            <div class="text-item">
+                <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa cumque rem modi ipsam porro perferendis deserunt fugit hic iure? At, possimus. Nulla, explicabo? Reiciendis nobis ea natus nostrum aspernatur nesciunt accusamus illo.</p>
+                <div class ="text-item-info">
+                    <img src="../static/images/mtTaranaki.jpg" alt="Chew">
+                </div>
+                <h3>Chew Chuen Chan</h3>
+                <p class="text">Member</p>
+            </div>
+        </div>
+    </div>
+</section>    
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>    
+</body>
+</html>

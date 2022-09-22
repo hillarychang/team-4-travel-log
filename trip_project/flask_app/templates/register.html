@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='css/menu.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/register.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/global.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+
+</head>
+<body>
+<!-- header & navbar section -->
+<nav class="navbar">
+    {% block menu %}
+        {% include 'menu.html' %}
+    {%  endblock menu%}
+</nav>
+
+<!-- header -->
+<header class = "flex">
+    <div class = "container">
+        <div class = "header-title">
+            <h1>Registration</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rerum maxime enim odit illum in molestias beatae doloremque, ratione optio.</p>
+        </div>
+    </div>
+</header>
+<!-- end of header -->
+
+    <!-- login error flash message -->
+    <div class="flashContainer">
+        {% if error%}
+            {%for msg in error%}
+                <p>{{msg}}</p>
+            {% endfor%}
+        {% endif%}
+    </div>
+<!-- end of error flash message -->
+
+    <!-- registration form container -->
+    <div class="registerForm">
+        <form action="/register" method="POST"  class="formContainer">
+            {% if reg_msg %}
+                <div class ="alert alert-info" role="alert">
+                    {% for message in reg_msg %}
+                        <h4>{{message}}</h4>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" placeholder="Enter your first name">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" placeholder="Enter your last name">
+            <label for="email" >Email:</label>
+            <input type="text" name="email" placeholder="Enter your email">
+            <label for="password" >Password:</label>
+            <input type="password" name="password" placeholder="Enter your password">
+            <label for="confirm_pass" >Confirm Password:</label>
+            <input type="password" name="confirm_pass" placeholder="Enter your password again">
+            <input type="submit" value="Register" class="btn">
+            <p>Already have an account? <a href="/">Log in</a></p>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js')}}"></script>    
+    </body>
+</html>
+
+

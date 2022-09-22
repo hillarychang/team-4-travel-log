@@ -1,0 +1,200 @@
+
+
+/* Login  */
+.loginPopup {
+    display:none;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    z-index: 10000;
+    min-height:100vh;
+    background:rgba(247,237,226,.5);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formContainer {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);    
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding:1.5rem 2rem;
+    border-radius:.5rem;
+    background:#fff;
+    width:40rem; 
+}
+
+.formContainer i {
+    position: absolute;
+    top:2rem; 
+    right:3rem;
+    font-size:2rem;
+    color:var(--yellow);
+    cursor: pointer;
+    /* text-align: right; */
+}
+.formContainer h2{
+    font-size:2.5rem;
+    color:var(--gray);
+    text-transform:uppercase;
+    text-align: center;
+    padding:1rem 0;
+}
+.formContainer h4{
+    font-size:0.8rem;
+    color:var(--coral);
+    text-align: center;
+}
+
+.formContainer input{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 10px 0;
+    border: none;
+    background: rgba(247,237,226,.5);
+}
+.formContainer input:hover{
+    background-color:rgba(242,132,130,.1);
+    outline: none;
+}
+
+.formContainer .btn {
+    padding: 12px 20px;
+    border: none;
+    background-color: var(--coral);
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.formContainer .btn:hover{
+    background-color: #fff;
+    color:var(--coral);
+    border:solid var(--coral);
+}
+
+.formContainer p{
+    padding: 0.5rem ;
+    font-size:1.5rem;
+    color:var(--gray);
+}
+
+.formContainer p a {
+    color:var(--coral);
+}
+
+.formContainer p a:hover{
+    color:var(--green);
+    text-decoration: underline;
+}
+
+/* slider */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica", sans-serif;
+    }
+img {
+    max-width: 100%;
+}
+.slider-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.menu {
+    position: absolute;
+    left: 0;
+    z-index: 900;
+    width: 100%;
+    bottom: 0;
+}
+.menu label {
+    cursor: pointer;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50px;
+    margin: 0 0.2em 1em;
+}
+.menu label:hover,
+.menu label:focus {
+    background: var(--blue);
+}
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 10;
+    padding: 8em 1em 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    transition: left 0s 0.75s;
+}
+
+.showcase{
+    min-width: 100%;
+    color:#fff;
+    display:grid;
+    place-content: center;
+    place-items: center;
+    text-align: center;
+    transform:none;
+}
+
+.showcase h1{
+    font-size:1.8rem;
+    width:90%;
+    margin:1.5rem auto;
+}
+.showcase p{
+    font-size:0.8rem;
+    width:90%;
+    margin-bottom:1.5rem;
+}
+.showcase button{
+    background: transparent;
+    border: 2.5px solid #fff;
+    color:#fff;
+    font-family: inherit;
+    text-transform: uppercase;
+    padding:0.8rem 1.4rem;
+    outline: 0;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.showcase button:hover{
+    background: #fff;
+    color:#000;
+}
+
+[id^="slide"]:checked + .slide {
+    left: 0;
+    z-index: 100;
+    transition: left 0.65s ease-out;
+}
+.slide-1 {
+    background-image: url("../images/beach4.jpg");
+}
+.slide-2 {
+    background-image: url("../images/waterfall.jpg");
+}
+.slide-3 {
+    background-image: url("../images/chinatown.jpg");
+}
